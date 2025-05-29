@@ -1,7 +1,9 @@
 function App() {
   return (
     <div>
-      <h1>Hello, World!</h1>
+      <header>
+        <h1>scatter plot of iris data</h1>
+      </header>
     </div>
   );
 }
