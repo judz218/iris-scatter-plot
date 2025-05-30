@@ -1,4 +1,11 @@
+import {useState} from "react";
+
 function App() {
+  const [xProperty, setXProperty] = useState("sepal lebgth");
+  const [yProperty, setYProperty] = useState("sepal width");
+
+  console.log("x", xProperty);
+  console.log("y", yProperty);
   return (
     <div>
       <header className="hero is-info is-small ">
@@ -9,7 +16,7 @@ function App() {
       <main>
         <div>
           <label for="x-select">x property</label>
-          <select name="x" id="x property">
+          <select value={xProperty} onChange={(event)=> {setXProperty(event.target.value)}}>
             <option value="sepal length">sepal length</option>
             <option value="sepal width">sepal width</option>
             <option value="petal length">petal length</option>
@@ -18,7 +25,7 @@ function App() {
         </div>
         <div>
           <label for="y-select">y property</label>
-          <select name="y" id="y property">
+          <select value={yProperty} onChange={(event)=> {setYProperty(event.target.value)}}>
             <option value="sepal length">sepal length</option>
             <option value="sepal width">sepal width</option>
             <option value="petal length">petal length</option>
@@ -26,7 +33,7 @@ function App() {
           </select>
         </div>
         <div>
-          
+          content
         </div>
 
       </main>
