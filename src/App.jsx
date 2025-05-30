@@ -15,12 +15,12 @@ function App() {
       console.log(data);
     })();
   }, []);
-
+  // 子から子への受け渡しには一度親を経由させる必要がある
   return (
     <div>
       <Header />
       <Controls />
-      <Contents />
+      <Contents data={data}/>
     </div>
   );
 }
