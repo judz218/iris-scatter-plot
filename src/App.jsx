@@ -1,3 +1,5 @@
+import Header from "./components/Header";
+
 import {useState, useEffect} from "react";
 
 function App() {
@@ -14,14 +16,9 @@ function App() {
 
   return (
     <div>
-      <header className="hero is-info is-small ">
-        <div className="hero-body"> 
-            <h1 className="has-text-white">scatter plot of iris data</h1>
-        </div>
-      </header>
-      <main>
+      <Header />
         <div>
-          <label for="x-select">x property</label>
+          <label id="x-select">x property</label>
           <select value={xProperty} onChange={(event)=> {setXProperty(event.target.value)}}>
             <option value="sepal length">sepal length</option>
             <option value="sepal width">sepal width</option>
@@ -30,7 +27,7 @@ function App() {
           </select>
         </div>
         <div>
-          <label for="y-select">y property</label>
+          <label id="y-select">y property</label>
           <select value={yProperty} onChange={(event)=> {setYProperty(event.target.value)}}>
             <option value="sepal length">sepal length</option>
             <option value="sepal width">sepal width</option>
@@ -41,8 +38,6 @@ function App() {
         <div>
           content
         </div>
-
-      </main>
     </div>
   );
 }
