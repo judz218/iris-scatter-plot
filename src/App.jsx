@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import Controls from "./components/Controls"
+import Contents from "./components/Contents";
 
 import {useState, useEffect} from "react";
 
@@ -19,9 +20,7 @@ function App() {
     <div>
       <Header />
       <Controls />
-        <div>
-          content
-        </div>
+      <Contents />
     </div>
   );
 }
