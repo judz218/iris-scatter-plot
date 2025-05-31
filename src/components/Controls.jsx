@@ -1,9 +1,8 @@
 import {useState, useEffect} from "react";
 
 
-export default function Controls() {
-    const [xProperty, setXProperty] = useState("sepal lebgth");
-    const [yProperty, setYProperty] = useState("sepal width");
+export default function Controls({ xProperty, yProperty, setXProperty, setYProperty }) {
+
     return (
       <div>
       <div>
