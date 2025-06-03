@@ -15,12 +15,6 @@ export default function Contents ({data, xProperty, yProperty}) {
 
     useEffect(() => {
 
-        console.log("xProperty:", xProperty);
-        console.log("yProperty:", yProperty);
-        console.log("sample data:", data[0]);
-        console.log("value x:", data[0][xProperty]);
-        console.log("value y:", data[0][yProperty]);
-
         var svg = d3.select("body")
                 .append("svg")
                 .attr("width", w)
