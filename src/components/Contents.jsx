@@ -12,8 +12,6 @@ export default function Contents ({data, xProperty, yProperty}) {
 
     const r = 5;
 
-    const dataset = [ 5, 10, 15, 20, 25 ];
-
     var svg = d3.select("body")
                 .append("svg")
                 .attr("width", w)
