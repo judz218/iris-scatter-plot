@@ -5,8 +5,8 @@ import Contents from "./components/Contents";
 import {useState, useEffect} from "react";
 
 function App() {
-  const [xProperty, setXProperty] = useState("sepal lebgth");
-  const [yProperty, setYProperty] = useState("sepal width");
+  const [xProperty, setXProperty] = useState("sepalLength");
+  const [yProperty, setYProperty] = useState("sepalWidth");
   const [data, setData] = useState(null);
 
   useEffect(() => {
