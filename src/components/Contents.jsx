@@ -1,5 +1,43 @@
-export default function Contents () {
+// いったんxは"sepal length"、yは"sepal width"に固定して散布図をつくろう
+import * as d3 from "d3";
+
+export default function Contents ({data, xProperty, yProperty}) {
+    const colors = [
+        {species: "setosa", col: "green"},
+        {species: "versicolor", col:"purple"},
+        {species: "virginica", col:"orange"}
+    ];
+    const w = 800;
+    const h = 800;
+
+    const r = 5;
+
+    const dataset = [ 5, 10, 15, 20, 25 ];
+
+    var svg = d3.select("body")
+                .append("svg")
+                .attr("width", w)
+                .attr("height", h);
+
+    // const xScale = d3.scaleLinear()
+    //                  .domain([0, d3.max(data, d => d.sepalLength)])
+    //                  .range([0, w]);
+    
+    // const yScale = d3.scaleLinear()
+    //                  .domain([0, d3.max(data, d => d.sepalWidth)])
+    //                  .range([h, 0]);
+
+    const circles = svg.selectAll("circle")
+                        .data(data)
+                        .enter()
+                        .append("circle");
+    
+    circles.attr("cx", d => d.sepalLength)
+            .attr("cy", d => d.sepalWidth)
+            .attr("r", r)
+            .attr("fill", "orange");
+
     return (
-        <div>aaa</div>
+        <></>
     );
 }
