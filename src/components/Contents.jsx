@@ -1,5 +1,6 @@
 // いったんxは"sepal length"、yは"sepal width"に固定して散布図をつくろう
 import * as d3 from "d3";
+import { useEffect } from "react";
 
 export default function Contents ({data, xProperty, yProperty}) {
     const colors = {
@@ -12,28 +13,33 @@ export default function Contents ({data, xProperty, yProperty}) {
 
     const r = 5;
 
-    var svg = d3.select("body")
+    useEffect(() => {
+
+        var svg = d3.select("body")
                 .append("svg")
                 .attr("width", w)
                 .attr("height", h);
 
-    const xScale = d3.scaleLinear()
-                     .domain([0, d3.max(data, d => d.sepalLength)])
-                     .range([0, w]);
-    
-    const yScale = d3.scaleLinear()
-                     .domain([0, d3.max(data, d => d.sepalWidth)])
-                     .range([h, 0]);
+        const xScale = d3.scaleLinear()
+                        .domain([0, d3.max(data, d => d.sepalLength)])
+                        .range([0, w]);
+        
+        const yScale = d3.scaleLinear()
+                        .domain([0, d3.max(data, d => d.sepalWidth)])
+                        .range([h, 0]);
 
-    const circles = svg.selectAll("circle")
-                        .data(data)
-                        .enter()
-                        .append("circle");
+        const circles = svg.selectAll("circle")
+                            .data(data)
+                            .enter()
+                            .append("circle");
+        
+        circles.attr("cx", d => xScale(d.sepalLength))
+                .attr("cy", d => yScale(d.sepalWidth))
+                .attr("r", r)
+                .attr("fill", d => colors[d.species]);
+
+    }, [data, xProperty, yProperty]);
     
-    circles.attr("cx", d => xScale(d.sepalLength))
-            .attr("cy", d => yScale(d.sepalWidth))
-            .attr("r", r)
-            .attr("fill", d => colors[d.species]);
 
     return (
         <></>
