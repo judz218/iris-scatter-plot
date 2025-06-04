@@ -5,20 +5,23 @@ import YAxis from "./chartParts/YAxis";
 
 export default function Main ({data, xProperty, yProperty}) {
     const w = 800;
-    const h = 800;
+    const h = 600;
     const colors = {
         setosa: "green",
         versicolor: "purple",
         virginica: "orange"
     };
 
+    const plotW = 650;
+    const padding = 50;
+
     const xScale = d3.scaleLinear()
-                     .domain([0, d3.max(data, d => d[xProperty])])
-                     .range([0, w]);
+                     .domain([d3.min(data, d => d[xProperty]), d3.max(data, d => d[xProperty])])
+                     .range([padding, plotW-padding]);
     
     const yScale = d3.scaleLinear()
-                     .domain([0, d3.max(data, d => d[yProperty])])
-                     .range([h, 0]);
+                     .domain([d3.min(data, d => d[yProperty]), d3.max(data, d => d[yProperty])])
+                     .range([h-padding, padding]);
 
     return (
         <svg width={w} height={h}>
@@ -32,7 +35,7 @@ export default function Main ({data, xProperty, yProperty}) {
             />
             <XAxis xScale={xScale} height={h} />
             <YAxis yScale={yScale} />
-            <Legend colors={colors}/>
+            <Legend colors={colors} plotW={plotW}/>
         </svg>
         
     );
