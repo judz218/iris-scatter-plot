@@ -1,7 +1,4 @@
-import { useState } from "react";
-
-export default function Legend({colors, plotW}) {
-    const [isClicked, setIsClicked] = useState([false, false, false]);
+export default function Legend({colors, plotW, isClicked, setIsClicked}) {
     const wh = 15;
     console.log(isClicked);
     return (
