@@ -1,6 +1,5 @@
 export default function Legend({colors, plotW, isClicked, setIsClicked}) {
     const wh = 15;
-    console.log(isClicked);
     return (
         <g transform={`translate(${plotW}, 50)`}>
             {Object.entries(colors).map(([species, color], i) => (

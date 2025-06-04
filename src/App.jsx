@@ -23,8 +23,6 @@ function App() {
     )
   }
 
-  
-  // 子から子への受け渡しには一度親を経由させる必要がある
   return (
     <div>
       <Header />
