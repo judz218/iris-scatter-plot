@@ -34,17 +34,19 @@ export default function Main ({data, xProperty, yProperty}) {
 
     return (
         <svg width={w} height={h}>
-            <ScatterPlot
-                data={data}
-                xProperty={xProperty}
-                yProperty={yProperty}
-                xScale={xScale}
-                yScale={yScale}
-                colors={colors}
-                isClicked={isClicked}
-            />
-            <XAxis xScale={xScale} h={h} padding={padding}/>
-            <YAxis yScale={yScale} padding={padding}/>
+            <g>
+                <ScatterPlot
+                    data={data}
+                    xProperty={xProperty}
+                    yProperty={yProperty}
+                    xScale={xScale}
+                    yScale={yScale}
+                    colors={colors}
+                    isClicked={isClicked}
+                />
+                <XAxis xScale={xScale} h={h} padding={padding}/>
+                <YAxis yScale={yScale} padding={padding}/>
+            </g>
             <Legend colors={colors} plotW={plotW} isClicked={isClicked} setIsClicked={setIsClicked}/>
         </svg>
         
