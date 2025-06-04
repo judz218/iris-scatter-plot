@@ -1,6 +1,6 @@
 import '../../../style.css';
 
-export default function ScatterPlot({data, xProperty, yProperty, xScale, yScale, colors}) {
+export default function ScatterPlot({data, xProperty, yProperty, xScale, yScale, colors, isClicked}) {
     const r = 5;
     return (
         <g>
@@ -12,6 +12,7 @@ export default function ScatterPlot({data, xProperty, yProperty, xScale, yScale,
                     cy={yScale(d[yProperty])}
                     r={r}
                     fill={colors[d.species]}
+                    opacity={isClicked[d.species] ? "0":"1"}
                 />
             ))}
         </g>

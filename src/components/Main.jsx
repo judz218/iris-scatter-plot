@@ -26,7 +26,11 @@ export default function Main ({data, xProperty, yProperty}) {
                      .domain([d3.min(data, d => d[yProperty]), d3.max(data, d => d[yProperty])])
                      .range([h-padding, padding]);
     
-    const [isClicked, setIsClicked] = useState([false, false, false]);
+    const [isClicked, setIsClicked] = useState({
+        setosa: false,
+        versicolor: false,
+        virginica: false
+    });
 
     return (
         <svg width={w} height={h}>

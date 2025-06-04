@@ -7,11 +7,12 @@ export default function Legend({colors, plotW, isClicked, setIsClicked}) {
                 <g 
                     key={species}
                     transform={`translate(0, ${i*20})`}
-                    onClick={(() => (setIsClicked(prev => {
-                        const newClicked = [...prev];
-                        newClicked[i] = !newClicked[i];
-                        return newClicked; 
-                    })))}
+                    onClick={() => {
+                        setIsClicked(prev => ({
+                            ...prev,
+                            [species]: !prev[species]
+                        }))
+                    }}
                 >
                     <rect x="0" y="0" width={wh} height={wh} fill={color}/>
                     <text x={wh+4} y={wh/2} dominantBaseline="middle">{species}</text>
