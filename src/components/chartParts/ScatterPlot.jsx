@@ -1,3 +1,5 @@
+import '../../../style.css';
+
 export default function ScatterPlot({data, xProperty, yProperty, xScale, yScale, colors}) {
     const r = 5;
     return (
@@ -5,6 +7,7 @@ export default function ScatterPlot({data, xProperty, yProperty, xScale, yScale,
             {data.map((d, i) => (
                 <circle 
                     key={i}
+                    className="dot"
                     cx={xScale(d[xProperty])}
                     cy={yScale(d[yProperty])}
                     r={r}
