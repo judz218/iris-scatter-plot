@@ -1,44 +1,44 @@
-import { useEffect, useRef } from "react";
-// useRefってなんだ
-export default function Contents({ data, xProperty, yProperty }) {
+export default function Contents ({data, xProperty, yProperty}) {
     const colors = {
         setosa: "green",
         versicolor: "purple",
         virginica: "orange"
     };
-
     const w = 800;
     const h = 800;
     const r = 5;
 
-    const svgRef = useRef(); // React が svg を管理
+    const xScale = d3.scaleLinear()
+                     .domain([0, d3.max(data, d => d[xProperty])])
+                     .range([0, w]);
+    
+    const yScale = d3.scaleLinear()
+                     .domain([0, d3.max(data, d => d[yProperty])])
+                     .range([h, 0]);
 
-    useEffect(() => {
-        const svg = d3.select(svgRef.current);
-
-        // 前回の描画をクリア（毎回リセット）
-        svg.selectAll("*").remove();
-
-        const xScale = d3.scaleLinear()
-            .domain([0, d3.max(data, d => d[xProperty])])
-            .range([0, w]);
-
-        const yScale = d3.scaleLinear()
-            .domain([0, d3.max(data, d => d[yProperty])])
-            .range([h, 0]);
-
-        svg.selectAll("circle")
-            .data(data)
-            .enter()
-            .append("circle")
-            .attr("cx", d => xScale(d[xProperty]))
-            .attr("cy", d => yScale(d[yProperty]))
-            .attr("r", r)
-            .attr("fill", d => colors[d.species]);
-
-    }, [data, xProperty, yProperty]);
+    const xAxis = d3.axisBottom()
+                    .scale(xScale);
 
     return (
-        <svg ref={svgRef} width={w} height={h}></svg>
+        <svg width={w} height={h}>
+            <g>
+                <g>
+                    {data.map((d, i) => (
+                        <circle 
+                            key={i}
+                            cx={xScale(d[xProperty])}
+                            cy={yScale(d[yProperty])}
+                            r={r}
+                            fill={colors[d.species]}
+                        />
+                    ))}
+                </g>
+                <line/>
+                
+            </g>
+            
+            {/* 点(0,0)の位置 */}
+            <circle cx="0" cy="0" r="10" fill="red" /> 
+        </svg>
     );
 }
