@@ -3,16 +3,17 @@ import Legend from "./chartParts/Legend";
 import ScatterPlot from "./chartParts/ScatterPlot";
 import YAxis from "./chartParts/YAxis";
 
+//軸かくのにd3.axisBottomってのもあるらしい
 export default function Main ({data, xProperty, yProperty}) {
     const w = 800;
-    const h = 600;
+    const h = 500;
     const colors = {
         setosa: "green",
         versicolor: "purple",
         virginica: "orange"
     };
 
-    const plotW = 650;
+    const plotW = 500;
     const padding = 50;
 
     const xScale = d3.scaleLinear()
@@ -33,8 +34,8 @@ export default function Main ({data, xProperty, yProperty}) {
                 yScale={yScale}
                 colors={colors}
             />
-            <XAxis xScale={xScale} height={h} />
-            <YAxis yScale={yScale} />
+            <XAxis xScale={xScale} h={h} padding={padding}/>
+            <YAxis yScale={yScale} padding={padding}/>
             <Legend colors={colors} plotW={plotW}/>
         </svg>
         

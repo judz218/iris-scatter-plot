@@ -1,4 +1,4 @@
-export default function XAxis() {
+export default function XAxis({xScale, h, padding}) {
     return (
         <></>
     );

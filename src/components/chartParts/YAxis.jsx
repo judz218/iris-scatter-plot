@@ -1,4 +1,4 @@
-export default function YAxis() {
+export default function YAxis({yScale, padding}) {
     return (
         <></>
     );
