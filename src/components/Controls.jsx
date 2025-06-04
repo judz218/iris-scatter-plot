@@ -3,7 +3,7 @@ export default function Controls({ xProperty, yProperty, setXProperty, setYPrope
   const propertyVal = ["sepalLength", "sepalWidth", "petalLength", "petalWidth"];
     return (
       <div>
-      <div>
+        <div>
           <label id="x-select">x property</label>
           <select value={xProperty} onChange={(event)=> {setXProperty(event.target.value)}}>
             {propertyName.map((p, i) => (
