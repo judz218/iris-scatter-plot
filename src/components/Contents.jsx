@@ -71,6 +71,8 @@ export default function Contents ({data, xProperty, yProperty}) {
                     fill={colors[d.species]}
                 />
             ))}
+            {/* 点(0,0)の位置 */}
+            <circle cx="0" cy="0" r="10" fill="red" /> 
         </svg>
     );
 }
