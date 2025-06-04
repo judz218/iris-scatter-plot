@@ -1,7 +1,3 @@
-// // いったんxは"sepal length"、yは"sepal width"に固定して散布図をつくろう
-// import * as d3 from "d3";
-// import { useEffect } from "react";
-
 // export default function Contents ({data, xProperty, yProperty}) {
 //     console.log(xProperty)
 //     const colors = {
