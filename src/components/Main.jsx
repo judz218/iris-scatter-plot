@@ -1,6 +1,7 @@
-import Axis from "./contents/Axis";
-import Legend from "./contents/Legend";
-import ScatterPlot from "./contents/ScatterPlot";
+import XAxis from "./chartParts/XAxis";
+import Legend from "./chartParts/Legend";
+import ScatterPlot from "./chartParts/ScatterPlot";
+import YAxis from "./chartParts/YAxis";
 
 export default function Main ({data, xProperty, yProperty}) {
     return (
@@ -11,7 +12,8 @@ export default function Main ({data, xProperty, yProperty}) {
                 yProperty={yProperty}
             />
             <Legend/>
-            <Axis/>
+            <XAxis/>
+            <YAxis/>
         </div>
         
     );

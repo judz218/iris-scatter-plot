@@ -1,4 +1,4 @@
-export default function Axis() {
+export default function XAxis() {
     return (
         <></>
     );
