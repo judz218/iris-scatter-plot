@@ -1,4 +1,4 @@
-export default function Contents ({data, xProperty, yProperty}) {
+export default function ScatterPlot({data, xProperty, yProperty}) {
     const colors = {
         setosa: "green",
         versicolor: "purple",
@@ -15,9 +15,6 @@ export default function Contents ({data, xProperty, yProperty}) {
     const yScale = d3.scaleLinear()
                      .domain([0, d3.max(data, d => d[yProperty])])
                      .range([h, 0]);
-
-    const xAxis = d3.axisBottom()
-                    .scale(xScale);
 
     return (
         <svg width={w} height={h}>

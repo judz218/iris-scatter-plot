@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import Controls from "./components/Controls"
-import Contents from "./components/Contents";
+import Main from "./components/Main";
 
 import {useState, useEffect} from "react";
 
@@ -34,7 +34,7 @@ function App() {
         setXProperty={setXProperty}
         setYProperty={setYProperty}
       />
-      <Contents
+      <Main
         data={data}
         xProperty={xProperty}
         yProperty={yProperty}
