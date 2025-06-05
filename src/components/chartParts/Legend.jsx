@@ -1,9 +1,11 @@
+//clickeできる要素はカーソルが変わるようにする
 export default function Legend({colors, plotW, isClicked, setIsClicked}) {
     const wh = 15;
     return (
         <g transform={`translate(${plotW}, 50)`}>
             {Object.entries(colors).map(([species, color], i) => (
                 <g 
+                    className="legend"
                     key={species}
                     transform={`translate(0, ${i*20})`}
                     onClick={() => {
